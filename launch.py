@@ -15,6 +15,7 @@ import os
 import sys
 
 BLOG = "https://hedwigai.com/blog/qwen-personality-neurons"
+CODE = "https://github.com/un-seen/doodle-desk"
 SITE = "https://hedwigai.com"
 # US Google searches a month (keywords volume, 2026-11-12): ai news 90.5K, qwen 74K, local llm 40.5K
 # (competition 3/100), ai characters 33.1K (4/100), ai news today 12.1K, qwen 3.5 9.9K, local ai 9.9K,
@@ -52,7 +53,11 @@ def main():
     cast = []
     for sc in m["scenes"]:
         cast += [c for c in sc["cast"] if c not in cast]
-    best = max((l for sc in m["scenes"] for l in sc["lines"]), key=lambda l: len(l["text"]))
+    import tomllib
+    cfg = tomllib.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "cast.toml"), "rb"))
+    cast_voice = {c["name"]: c.get("voice") for c in cfg.get("character", [])}
+    best = max((l for sc in m["scenes"] for l in sc["lines"] if "—" not in l["text"]), key=lambda l: len(l["text"]))
+    best_push = best.get("push") or cast_voice.get(best["who"]) or "no"
 
     chapters = "\n".join(f"{t} {short_chapter(c)}" for t, c in m["chapters"])
     sources = "\n".join(f"- {sc['source']}: {sc['headline']}\n  {sc['link']}" for sc in m["scenes"])
@@ -82,6 +87,7 @@ An M1 Mac mini with 8 GB runs everything: Qwen3.5-4B (4-bit, vision included, 2.
 Today's stories
 {sources}
 
+The code (Apache 2.0): {CODE}
 Made with hedwigai: {SITE}
 
 #AICartoon #AINews #Qwen"""
@@ -98,7 +104,7 @@ Made with hedwigai: {SITE}
         fit_list(f"Episode {n}, {len(m['scenes'])} scenes, real headlines:", [sc["headline"] for sc in m["scenes"]], 280),
         "The stack, all on the Mac mini:\n• Qwen3.5-4B, 4-bit with vision (2.9 GB): the lines\n• Qwen3-TTS 1.7B: the voices\n"
         "• one neuron pushed per character: the personality\n• SVG doodles, rendered on the CPU",
-        f"The personality neurons are written up here: {BLOG}",
+        f"The code is open: {CODE}\nThe personality neurons: {BLOG}",
     ]
     bsky_main = (f"We gave {len(cast)} AI cartoon characters today's news. Each one sees the scene, minus its own pixels, "
                  "and Qwen writes its line from that picture. Its personality is a single pushed neuron. "
@@ -113,7 +119,7 @@ Made with hedwigai: {SITE}
 
 What did not work: the 4B planner made up personal details about real people in the news, so headlines that name people are skipped. A "suspicious" character also called a real government report "false", so lines that deny the story are now filtered.
 
-Episode {n}: [video link]. The neuron write-up: {BLOG}"""
+Episode {n}: [video link]. Code (Apache 2.0): {CODE}. The neuron write-up: {BLOG}"""
 
     alt = [
         "A doodle TV shows the headline 'Famed ship SS United States deliberately sunk off Florida coast to become a reef' with a search-interest chart; a granny character says the ocean now holds its own lighthouse.",
@@ -166,7 +172,7 @@ Tag no one in post 1. Reply 2 is where to tag the people whose tools it uses (ml
 ```
 {bsky_main}
 ```
-**Reply**, the video, then the link: {BLOG}
+**Reply**, the video, then a reply with the links: {CODE} and {BLOG}
 
 ## Reddit
 r/LocalLLaMA (flair: Other or Resources); a shorter version fits r/LocalLLM.
@@ -179,7 +185,7 @@ r/LocalLLaMA (flair: Other or Resources); a shorter version fits r/LocalLLM.
 """ + "\n".join(f"{i + 1}. {a}" for i, a in enumerate(alt)) + f"""
 
 ## The line to quote when someone asks what it is
-"{best['text']}" ({best['who']}, {best['push']} push)
+"{best['text']}" ({best['who']}, {best_push} push)
 """
     for name, text, limit in [("x post 1", x_main, 280), *[(f"x reply {i + 1}", r, 280) for i, r in enumerate(x_replies)],
                               ("bluesky post 1", bsky_main, 300), ("youtube title", titles[0], 100)]:
