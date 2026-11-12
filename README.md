@@ -2,7 +2,7 @@
 
 Doodle Desk makes cartoon episodes about today's news. Doodle characters stand in a scene, read a real headline on a TV and talk about it. Every part runs on one Apple silicon Mac. We made it on an M1 Mac mini with 8 GB of memory.
 
-Episode 1: "AI Characters React to Today's News" on the hedwigai YouTube channel ([@hedwigai-app](https://www.youtube.com/@hedwigai-app)).
+Watch Episode 1: [AI Characters React to Today's News](https://youtu.be/o73Ho2bKGZQ) on the hedwigai YouTube channel.
 
 ## What makes it different
 
