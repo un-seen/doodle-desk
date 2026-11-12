@@ -1,0 +1,182 @@
+{
+ "title": "Forever Chemicals",
+ "setting": "beach",
+ "news": {
+  "title": "New report shows progress in cutting levels of ‘forever chemicals’ in England’s rivers",
+  "link": "https://www.gov.uk/government/news/new-report-shows-progress-in-cutting-levels-of-forever-chemicals-in-englands-rivers",
+  "when": "2026-11-12T00:01:02+00:00",
+  "channel": "gov_uk"
+ },
+ "cast": [
+  {
+   "name": "Officer Bolt",
+   "role": "cop",
+   "sex": "male",
+   "x": 0.08,
+   "voice": "suspicious",
+   "dose": 0.7,
+   "neuron": "L5N6573+"
+  },
+  {
+   "name": "Captain Mira",
+   "role": "pirate",
+   "sex": "female",
+   "x": 0.93,
+   "voice": "upbeat",
+   "dose": 0.7,
+   "neuron": "L5N8348-"
+  }
+ ],
+ "props": [
+  {
+   "kind": "tv",
+   "x": 0.4,
+   "text": "New report shows progress in cutting levels of ‘forever chemicals’ in England’s rivers",
+   "program": {
+    "cmd": "trends interest \"forever chemicals\" --time 'today 12-m' --geo GB",
+    "series": [
+     7,
+     0,
+     6,
+     100,
+     21,
+     10,
+     9,
+     9,
+     6,
+     6,
+     6,
+     6,
+     11,
+     9,
+     8,
+     4,
+     7,
+     8,
+     0,
+     18,
+     8,
+     5,
+     14,
+     19,
+     16,
+     6,
+     6,
+     8,
+     5,
+     5,
+     5,
+     5,
+     5,
+     6,
+     6,
+     4,
+     5,
+     7,
+     8,
+     6,
+     11,
+     9,
+     6,
+     6,
+     6,
+     53,
+     9,
+     8,
+     7,
+     7,
+     8,
+     11,
+     9
+    ],
+    "label": "UK searches for \"forever chemicals\", last 12 months"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 0.78,
+   "text": "Clean Rivers"
+  }
+ ],
+ "beats": [
+  {
+   "t": 0.4,
+   "who": "Officer Bolt",
+   "do": "walk_to",
+   "to": "tv"
+  },
+  {
+   "t": 0.8,
+   "who": "Officer Bolt",
+   "do": "say",
+   "text": "The report says forever chemicals dropped 30%!",
+   "about": "tv",
+   "draft": "The report says forever chemicals dropped 30%!",
+   "voice": "suspicious @ 0.7",
+   "t_said": 0.8,
+   "persona": "suspicious"
+  },
+  {
+   "t": 3.2,
+   "who": "Captain Mira",
+   "do": "point",
+   "to": "sea"
+  },
+  {
+   "t": 7.1,
+   "who": "Captain Mira",
+   "do": "say",
+   "text": "Pirates still have gold in chests!",
+   "draft": "But pirates still have forever gold in chests.",
+   "voice": "upbeat @ 0.7",
+   "t_said": 7.1,
+   "persona": "upbeat"
+  },
+  {
+   "t": 9.7,
+   "who": "Officer Bolt",
+   "do": "laugh"
+  },
+  {
+   "t": 13.0,
+   "who": "Officer Bolt",
+   "do": "say",
+   "text": "Forever chemicals — this is no criminal!",
+   "draft": "At least you have no chemical fines today.",
+   "voice": "suspicious @ 0.7",
+   "t_said": 13.0,
+   "persona": "suspicious"
+  },
+  {
+   "t": 15.4,
+   "who": "Captain Mira",
+   "do": "shrug"
+  },
+  {
+   "t": 20.1,
+   "who": "Captain Mira",
+   "do": "say",
+   "text": "My shorts are gold, sir!",
+   "draft": "My gold lasts forever, sir, just like my shorts.",
+   "voice": "upbeat @ 0.7",
+   "t_said": 20.1,
+   "persona": "upbeat"
+  },
+  {
+   "t": 22.3,
+   "who": "Officer Bolt",
+   "do": "cheer"
+  },
+  {
+   "t": 24.8,
+   "who": "Officer Bolt",
+   "do": "say",
+   "text": "Read the report, look around, and act — but don’t be a clean river of fear!",
+   "draft": "Pass me a coconut? That's definitely not chemical!",
+   "voice": "suspicious @ 0.7",
+   "t_said": 24.8,
+   "persona": "suspicious"
+  }
+ ],
+ "model": "Qwen3.5-4B"
+}

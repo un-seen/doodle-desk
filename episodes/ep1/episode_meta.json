@@ -1,0 +1,207 @@
+{
+ "title": "The Doodle Desk",
+ "number": 1,
+ "date": "Thursday, 12 November 2026",
+ "chapters": [
+  [
+   "0:00",
+   "Intro"
+  ],
+  [
+   "0:04",
+   "Forever Chemicals: Officer Bolt & Captain Mira on New report shows progress in cutting levels of ‘forever chemicals’ in England’s rivers"
+  ],
+  [
+   "0:40",
+   "Cold Front: Chef Basil & Dr. Ada on Temperatures drop further in Telangana; lowest of 11.3°C in Sangareddy"
+  ],
+  [
+   "1:03",
+   "Beast Protection: Cosmo & Professor Zap on Art trail celebrates arrival of black bears at zoo"
+  ],
+  [
+   "1:19",
+   "Reef Patrol: Chief Ember & Granny Pip on Famed ship SS United States deliberately sunk off Florida coast to become a reef"
+  ],
+  [
+   "1:49",
+   "Clouds and Code: Nova & Shadow on 93% of paint splatters are valid Perl programs (2019)"
+  ],
+  [
+   "2:26",
+   "Credits"
+  ]
+ ],
+ "scenes": [
+  {
+   "title": "Forever Chemicals",
+   "cast": [
+    "Officer Bolt",
+    "Captain Mira"
+   ],
+   "setting": "beach",
+   "headline": "New report shows progress in cutting levels of ‘forever chemicals’ in England’s rivers",
+   "source": "GOV.UK",
+   "link": "https://www.gov.uk/government/news/new-report-shows-progress-in-cutting-levels-of-forever-chemicals-in-englands-rivers",
+   "tv": "trends interest \"forever chemicals\" --time 'today 12-m' --geo GB",
+   "lines": [
+    {
+     "who": "Officer Bolt",
+     "text": "The report says forever chemicals dropped 30%!",
+     "push": "suspicious"
+    },
+    {
+     "who": "Captain Mira",
+     "text": "Pirates still have gold in chests!",
+     "push": "upbeat"
+    },
+    {
+     "who": "Officer Bolt",
+     "text": "Forever chemicals — this is no criminal!",
+     "push": "suspicious"
+    },
+    {
+     "who": "Captain Mira",
+     "text": "My shorts are gold, sir!",
+     "push": "upbeat"
+    },
+    {
+     "who": "Officer Bolt",
+     "text": "Read the report, look around, and act — but don’t be a clean river of fear!",
+     "push": "suspicious"
+    }
+   ]
+  },
+  {
+   "title": "Cold Front",
+   "cast": [
+    "Chef Basil",
+    "Dr. Ada"
+   ],
+   "setting": "city",
+   "headline": "Temperatures drop further in Telangana; lowest of 11.3°C in Sangareddy",
+   "source": "The Hindu",
+   "link": "https://www.thehindu.com/news/national/telangana/temperatures-drop-further-in-telangana-lowest-of-113c-in-sangareddy/article71692815.ece",
+   "tv": "trends interest \"Hyderabad weather\" --time 'now 7-d' --geo IN",
+   "lines": [
+    {
+     "who": "Chef Basil",
+     "text": "That's the temperature!",
+     "push": null
+    },
+    {
+     "who": "Dr. Ada",
+     "text": "It's gonna be cold — 11.3 degrees drop. Chill out.",
+     "push": null
+    },
+    {
+     "who": "Chef Basil",
+     "text": "It's 11.3 degrees!",
+     "push": null
+    }
+   ]
+  },
+  {
+   "title": "Beast Protection",
+   "cast": [
+    "Cosmo",
+    "Professor Zap"
+   ],
+   "setting": "night",
+   "headline": "Art trail celebrates arrival of black bears at zoo",
+   "source": "BBC News",
+   "link": "https://www.bbc.co.uk/news/articles/c39wzv2vqgxvo?at_medium=RSS&at_campaign=rss",
+   "tv": "trends interest \"black bear\" --time 'today 12-m' --geo GB",
+   "lines": [
+    {
+     "who": "Cosmo",
+     "text": "The TV celebrates black bears!",
+     "push": null
+    },
+    {
+     "who": "Professor Zap",
+     "text": "An art trail that walks, not speaks.",
+     "push": null
+    },
+    {
+     "who": "Professor Zap",
+     "text": "The art trail begins.",
+     "push": null
+    }
+   ]
+  },
+  {
+   "title": "Reef Patrol",
+   "cast": [
+    "Chief Ember",
+    "Granny Pip"
+   ],
+   "setting": "park",
+   "headline": "Famed ship SS United States deliberately sunk off Florida coast to become a reef",
+   "source": "BBC News",
+   "link": "https://www.bbc.co.uk/news/articles/c3x298n87rn2o?at_medium=RSS&at_campaign=rss",
+   "tv": "trends interest \"SS United States\" --time 'now 7-d' --geo US",
+   "lines": [
+    {
+     "who": "Chief Ember",
+     "text": "The news says the SS United States is sinking on purpose.",
+     "push": null
+    },
+    {
+     "who": "Granny Pip",
+     "text": "They sank the ship to save the story — now the ocean holds its own lighthouse.",
+     "push": null
+    },
+    {
+     "who": "Chief Ember",
+     "text": "Hey, let's take in the show!",
+     "push": null
+    },
+    {
+     "who": "Chief Ember",
+     "text": "The ship's a blast — no time for tears!",
+     "push": null
+    }
+   ]
+  },
+  {
+   "title": "Clouds and Code",
+   "cast": [
+    "Nova",
+    "Shadow"
+   ],
+   "setting": "city",
+   "headline": "93% of paint splatters are valid Perl programs (2019)",
+   "source": "Hacker News",
+   "link": "https://www.mcmillen.dev/sigbovik/",
+   "tv": "trends interest \"Perl\" --time 'now 7-d'",
+   "lines": [
+    {
+     "who": "Nova",
+     "text": "93%? That’s an incredible statistic!",
+     "push": null
+    },
+    {
+     "who": "Shadow",
+     "text": "Malicious code's doing 27% of the damage here.",
+     "push": null
+    },
+    {
+     "who": "Shadow",
+     "text": "93% of this city is just harmless art.",
+     "push": null
+    },
+    {
+     "who": "Nova",
+     "text": "7%? That’s the genius part of this masterpiece.",
+     "push": null
+    },
+    {
+     "who": "Shadow",
+     "text": "7% of the chaos's hidden mastermind.",
+     "push": null
+    }
+   ]
+  }
+ ]
+}

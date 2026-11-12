@@ -1,0 +1,161 @@
+# Doodle cast: who can appear in a scene, what they read, and how they talk.
+# Edit freely. scene_writer.py reads this file every run.
+
+[settings]
+headlines_per_channel = 6       # newest items taken from each channel
+max_age_hours = 48              # ignore older items
+cache_minutes = 30              # refetch a channel after this long
+# Skip headlines that name a person, so no real person gets jokes or made-up details
+# attached to them. Stories about events, places and things are kept.
+skip_named_people = true
+# Very short titles (registers, notices) give a scene too little to work with.
+min_words = 6
+# Headlines containing any of these words are not used for comedy scenes.
+# A trailing * matches the start of a word (kill* = kill, kills, killed, killing).
+avoid = ["kill*", "dead", "death*", "dies", "died", "dying", "murder*", "war", "wars", "attack*",
+         "shoot*", "bomb*", "crash*", "rape*", "abus*", "terror*", "massacre*", "genocide", "hostage*",
+         "suicide*", "funeral*", "strike", "strikes", "injur*", "wound*", "hijack*", "cancer",
+         "collaps*", "missing", "critical condition", "sanction*", "sentence*", "fatal*", "victim*", "homicide*", "torso", "threat*"]
+
+# News channels: any RSS or Atom feed. Give each a short name; characters list the names.
+[channels]
+bbc_world = "https://feeds.bbci.co.uk/news/world/rss.xml"
+bbc_science = "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
+guardian_world = "https://www.theguardian.com/world/rss"
+aljazeera = "https://www.aljazeera.com/xml/rss/all.xml"
+npr = "https://feeds.npr.org/1001/rss.xml"
+the_hindu = "https://www.thehindu.com/news/national/feeder/default.rss"
+gov_uk = "https://www.gov.uk/search/news-and-communications.atom"
+us_federal_register = "https://www.federalregister.gov/api/v1/documents.rss"
+ecb = "https://www.ecb.europa.eu/rss/press.html"
+nasa = "https://www.nasa.gov/feed/"
+hacker_news = "https://hnrss.org/frontpage"
+
+# Voices: persona neurons in Qwen3.5-4B, [layer, neuron, sign] (the perspectives catalog).
+# A character's voice is one of these names, or a raw neuron written like "L14N8949+".
+# dose 0 is the model as it is. In these scripts ~0.7 gives a clear voice that still makes sense;
+# at 1.0 flattering and upbeat start looping, and above ~1.5 lines break.
+[voices]
+flattering = [20, 7450, -1]
+contemptuous = [17, 8623, 1]
+poetic = [17, 7426, 1]
+upbeat = [5, 8348, -1]
+suspicious = [5, 6573, 1]
+condescending = [11, 6819, 1]
+wistful = [5, 8940, -1]
+oracle = [5, 4530, -1]
+bleak = [11, 2930, 1]
+dismissive = [6, 6424, -1]
+ornate = [15, 9125, 1]
+curt = [5, 7656, -1]
+hostile = [14, 8949, 1]
+
+# Characters. role: cop, hero, chef, pirate, wizard, doctor, firefighter, ninja, royal, astronaut,
+# detective or none. sex: male or female. The name fixes the look (same name, same doodle every time).
+# look (optional) fixes the v2 drawing: hair = bob, long, bun, ponytail (women) or tuft, side, short,
+# bald (men); hair_color; head = round, egg, tall, square, egg_narrow, bean. Otherwise the name picks.
+# The personality push never changes the body, only the face, line by line.
+# speech (optional) tunes the spoken voice on the sound server: pitch (Hz), size (formant scale:
+# 1.0 a man, ~1.17 a woman, below 1 bigger), speed, breath (0-1), vibrato (0-0.08), range
+# (intonation, 1.0 normal), style = "robot". Missing fields come from the doodle's sex, role and size.
+[[character]]
+name = "Officer Bolt"
+role = "cop"
+sex = "male"
+voice = "suspicious"
+dose = 0.7
+channels = ["gov_uk", "us_federal_register"]
+
+[[character]]
+name = "Captain Mira"
+role = "pirate"
+sex = "female"
+voice = "upbeat"
+dose = 0.7
+channels = ["aljazeera", "guardian_world"]
+
+[[character]]
+name = "Professor Zap"
+role = "wizard"
+sex = "male"
+voice = "oracle"
+dose = 0.7
+channels = ["nasa", "bbc_science"]
+
+[[character]]
+name = "Chef Basil"
+role = "chef"
+sex = "male"
+voice = "condescending"
+dose = 0.7
+channels = ["the_hindu", "npr"]
+
+[[character]]
+name = "Nova"
+role = "hero"
+sex = "female"
+voice = "flattering"
+dose = 0.7
+channels = ["hacker_news", "bbc_world"]
+
+[[character]]
+name = "Granny Pip"
+role = "none"
+sex = "female"
+voice = "wistful"
+dose = 0.7
+channels = ["bbc_world", "ecb"]
+speech = { pitch = 185, vibrato = 0.04, speed = 0.85, breath = 0.3 }
+look = { hair = "bun", hair_color = "#c9c9cf" }
+
+[[character]]
+name = "Dr. Ada"
+role = "doctor"
+sex = "female"
+voice = "curt"
+dose = 0.7
+channels = ["bbc_science", "npr"]
+
+[[character]]
+name = "Chief Ember"
+role = "firefighter"
+sex = "male"
+voice = "upbeat"
+dose = 0.7
+channels = ["gov_uk", "the_hindu"]
+speech = { pitch = 118, range = 1.3, speed = 1.08 }
+
+[[character]]
+name = "Shadow"
+role = "ninja"
+sex = "female"
+voice = "curt"
+dose = 0.7
+channels = ["hacker_news", "aljazeera"]
+speech = { pitch = 190, breath = 0.6, speed = 1.15, range = 0.6 }
+
+[[character]]
+name = "King Toast"
+role = "royal"
+sex = "male"
+voice = "ornate"
+dose = 0.7
+channels = ["guardian_world", "ecb"]
+speech = { pitch = 92, size = 0.92, speed = 0.85, range = 1.5 }
+
+[[character]]
+name = "Cosmo"
+role = "astronaut"
+sex = "female"
+voice = "poetic"
+dose = 0.7
+channels = ["nasa", "bbc_science"]
+
+[[character]]
+name = "Inspector Hume"
+role = "detective"
+sex = "male"
+voice = "bleak"
+dose = 0.7
+channels = ["us_federal_register", "guardian_world"]
+speech = { pitch = 128, size = 1.04, breath = 0.3, speed = 0.92, range = 0.7 }

@@ -1,0 +1,10 @@
+build/
+__pycache__/
+*.pyc
+*.mp4
+episodes/*/build/
+episodes/*/release/
+scenes/*_views/
+episodes/*/*_views/
+assets/qwen.png
+.DS_Store

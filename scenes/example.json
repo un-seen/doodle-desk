@@ -1,0 +1,15 @@
+{"title": "The Lost Parrot", "setting": "beach",
+ "cast": [{"name": "Officer Bolt", "role": "cop", "sex": "male", "x": 0.15},
+          {"name": "Captain Mira", "role": "pirate", "sex": "female", "x": 0.8}],
+ "beats": [
+  {"t": 0.3, "who": "Captain Mira", "do": "say", "text": "Has anyone seen my parrot?"},
+  {"t": 0.6, "who": "Officer Bolt", "do": "walk_to", "to": "Captain Mira"},
+  {"t": 3.6, "who": "Officer Bolt", "do": "shrug"},
+  {"t": 3.6, "who": "Officer Bolt", "do": "say", "text": "Only gulls here, ma'am."},
+  {"t": 5.6, "who": "Captain Mira", "do": "surprised"},
+  {"t": 5.8, "who": "Captain Mira", "do": "point", "to": "Officer Bolt"},
+  {"t": 5.8, "who": "Captain Mira", "do": "say", "text": "It's on your hat!"},
+  {"t": 8.2, "who": "Officer Bolt", "do": "jump"},
+  {"t": 9.3, "who": "Captain Mira", "do": "laugh"},
+  {"t": 9.4, "who": "Officer Bolt", "do": "say", "text": "Arrest that bird!"}
+ ]}
